@@ -2,7 +2,9 @@ import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import Loader from "../components/Loader";
 import Island from "../models/island";
-import Sky from "../components/Sky";
+import Sky from "../models/Sky";
+import Bird from "../models/Bird";
+import Plane from "../models/Plane";
 
 {
   /* <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
@@ -24,7 +26,7 @@ const Home = () => {
     return [screenScale, screenPosition, rotation];
   };
 
-  const [ islandScale, islandPosition, islandRotation ] =
+  const [islandScale, islandPosition, islandRotation] =
     adjustIslandForScreenSize();
   return (
     <section className="w-full h-screen relative">
@@ -41,12 +43,14 @@ const Home = () => {
             intensity={1}
           />
 
+          <Bird />
           <Sky />
           <Island
             position={islandPosition}
             scale={islandScale}
             rotation={islandRotation}
           />
+          <Plane />
         </Suspense>
       </Canvas>
     </section>
